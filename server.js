@@ -1,14 +1,17 @@
 /**
  * Created by Office on 10/13/2016.
  */
+// Module declaration
 var express=require('express');
 var app=express();
 var PORT=process.env.PORT || 3000;
-// Create Server Request on local post
-app.get('/',function (req,res) {
-    res.send('Welcome to todo-api form node-express js !');
+// Create webserver
+app.use(express.static(__dirname+'/public'));
+app.get('/About',function (req,res) {
+    res.write('<h1>About Page</h1>');
 });
-// Server Listen Port : 3000
+
+
 app.listen(PORT,function () {
 
     console.log('Server Running on port :'+ PORT + '!');
